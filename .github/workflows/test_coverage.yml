@@ -30,7 +30,7 @@ jobs:
       env:
         EXPECT_COVERAGE_RATE: ${{ secrets.EXPECT_COVERAGE_RATE }}
       run: |
-        coverage manage.py test
+        coverage run manage.py test
         coverage report
         coverage json -o coverage.json
         actual_coverage=$(jq ".totals.percent_covered_display"  coverage.json | cut -d '"' -f 2)
